@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-xl-3 col-lg-4">
+        <div class="m-portlet m-portlet--full-height">
+            <div class="m-portlet__body">
+                <div class="m-card-profile">
+                    <div class="m-card-profile__title m--hide">
+                        Your Profile
+                    </div>
+                    <div class="m-card-profile__pic">
+                        <div class="m-card-profile__pic-wrapper">
+                            <img src="{{ userModel.contact.picture }}" alt="">
+                        </div>
+                    </div>
+                    <div class="m-card-profile__details">
+                        <span class="m-card-profile__name">{{ userModel.firstName }} {{ userModel.lastName }}</span>
+                        <a href="" class="m-card-profile__email m-link">{{ userModel.contact.phone }}</a>
+                        <a href="" class="m-card-profile__email m-link">{{ userModel.contact.email }}</a>
+                    </div>
+                </div>
+                
+                <div class="m-portlet__body-separator"></div>
+                <div class="m-widget1 m-widget1--paddingless">
+                    <div class="m-widget1__item">
+                        <div class="row m-row--no-padding align-items-center">
+                            <div class="col">
+                                <h3 class="m-widget1__title">Login Count</h3>
+                                <span class="m-widget1__desc">Every login counts</span>
+                            </div>
+                            <div class="col m--align-right">
+                                <span class="m-widget1__number m--font-brand">{{ userModel.loginCount}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-widget1__item">
+                        <div class="row m-row--no-padding align-items-center">
+                            <div class="col">
+                                <h3 class="m-widget1__title">Created Jobs</h3>
+                                <span class="m-widget1__desc">Job which he created as user.</span>
+                            </div>
+                            <div class="col m--align-right">
+                                <span class="m-widget1__number m--font-danger">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-widget1__item">
+                        <div class="row m-row--no-padding align-items-center">
+                            <div class="col">
+                                <h3 class="m-widget1__title">Complete Jobs</h3>
+                                <span class="m-widget1__desc">Jobs which complete as driver</span>
+                            </div>
+                            <div class="col m--align-right">
+                                <span class="m-widget1__number m--font-success">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-widget1__item">
+                        <div class="row m-row--no-padding align-items-center">
+                            <div class="col">
+                                <h3 class="m-widget1__title">Spent money</h3>
+                                <span class="m-widget1__desc">Spent money as user</span>
+                            </div>
+                            <div class="col m--align-right">
+                                <span class="m-widget1__number m--font-brand">+ $1,000</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-widget1__item">
+                        <div class="row m-row--no-padding align-items-center">
+                            <div class="col">
+                                <h3 class="m-widget1__title">Earn money</h3>
+                                <span class="m-widget1__desc">Earn money as driver</span>
+                            </div>
+                            <div class="col m--align-right">
+                                <span class="m-widget1__number m--font-warning">+ $5,000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-9 col-lg-8">
+        <div class="m-portlet m-portlet--full-height m-portlet--tabs    ">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-tools">
+                </div>
+                <div class="m-portlet__head-tools">
+                    <ul class="m-portlet__nav">
+                        <li class="m-portlet__nav-item m-portlet__nav-item--last">
+                            <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill" (click)="onBack($event)">
+                                <mat-icon>apps</mat-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="m-portlet__body">
+            </div>
+        </div>
+    </div>
+</div>

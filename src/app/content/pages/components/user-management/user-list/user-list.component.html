@@ -1,0 +1,78 @@
+<div class="m-section">
+    <div class="m-section__content">
+        <div class="example-container mat-elevation-z8">
+            <div class="example-header">
+                <mat-form-field class="mat-form-field">
+                    <input matInput #matFilter (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+            </div>
+
+            <mat-table #sort="matSort" #table [dataSource]="dataSource" class="example-table" matSort matSortActive="createdAt" matSortDisableClear
+                matSortDirection="asc">
+                <!--- Note that these columns can be defined in any order.
+                                        The actual rendered columns are set as a property on the row definition" -->
+                <!-- Number Column -->
+                <ng-container matColumnDef="no">
+                    <mat-header-cell *matHeaderCellDef>#</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.no }}</mat-cell>
+                </ng-container>
+                <!-- Picture Column -->
+                <ng-container matColumnDef="contact.picture">
+                    <mat-header-cell *matHeaderCellDef>Picture</mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <span class="m-table__userpic">
+                            <img src="{{ row.contact.picture }}" class="m--img-rounded m--marginless m--img-centered" alt="" />
+                        </span>
+                    </mat-cell>
+                </ng-container>
+                <!-- First Name Column -->
+                <ng-container matColumnDef="firstName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.firstName }}</mat-cell>
+                </ng-container>
+                <!-- Last Name Column -->
+                <ng-container matColumnDef="lastName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>LastName</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.lastName }}</mat-cell>
+                </ng-container>
+                <!-- Email Column -->
+                <ng-container matColumnDef="contact.email">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.contact.email }}</mat-cell>
+                </ng-container>
+                <!-- Phone Column -->
+                <ng-container matColumnDef="contact.phone">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Phone</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.contact.phone }}</mat-cell>
+                </ng-container>
+                <!-- Created Column -->
+                <ng-container matColumnDef="createdAt">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header disableClear="true">
+                        Created at
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{ row.createdAt | date }}</mat-cell>
+                </ng-container>
+                <!-- Created Column -->
+                <ng-container matColumnDef="buttons">
+                    <mat-header-cell *matHeaderCellDef disableClear="true">
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <div class="button-row">
+                            <button mat-mini-fab color="primary" (click)="onShow($event, row._id)">
+                                <mat-icon>tv</mat-icon>
+                            </button>
+                            <button mat-mini-fab 
+                                    color="{{ row.status ? 'warn' : 'accent' }}"
+                                    (click)="onToggleStatus($event, row._id, !row.status)">
+                                <mat-icon>{{ row.status ? "block" : "check" }}</mat-icon>
+                            </button>
+                        </div>
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator #matPaginator [length]="resultsLength" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+</div>
